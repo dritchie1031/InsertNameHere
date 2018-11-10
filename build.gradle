@@ -11,14 +11,13 @@ buildscript {
     }
     dependencies {
         classpath 'org.wisepersist:gwt-gradle-plugin:1.0.6'
-        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         
 
     }
 }
 
 allprojects {
-    apply plugin: "eclipse"
     apply plugin: "idea"
 
     version = '1.0'
@@ -97,8 +96,4 @@ project(":core") {
         compile "com.badlogicgames.ashley:ashley:$ashleyVersion"
         
     }
-}
-
-tasks.eclipse.doLast {
-    delete ".project"
 }
