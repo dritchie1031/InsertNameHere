@@ -12,6 +12,7 @@ public class BattleMap
 {
     private Tile[][] tiles;
 
+    // arguments: x dimension and y dimension of the BattleMap
     public BattleMap(int xdim, int ydim)
     {
         tiles = new Tile[xdim][ydim];

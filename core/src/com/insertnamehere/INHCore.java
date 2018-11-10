@@ -50,7 +50,8 @@ public class INHCore extends ApplicationAdapter
 		TileType[] mapKeys = tileTextures.keySet().toArray(new TileType[0]);
 		for (int i = 0; i < mapKeys.length; i++)
         {
-            tileTextures.remove(mapKeys[i]).dispose();
+            tileTextures.remove(mapKeys[i]).dispose(); // simultaneously removing textures from the hash map and
+														//	disposing of them
         }
 	}
 }
