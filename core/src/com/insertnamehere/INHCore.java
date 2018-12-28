@@ -14,7 +14,6 @@ import java.util.HashMap;
 public class INHCore extends ApplicationAdapter
 {
     private SpriteBatch batch;
-    private HashMap<TileType, Texture> tileTextures;
 	private BattleMap map;
 	private OrthographicCamera camera;
 
@@ -24,8 +23,6 @@ public class INHCore extends ApplicationAdapter
 	{
 		batch = new SpriteBatch();
 		map = new BattleMap(20,10);
-		tileTextures = new HashMap<TileType, Texture>();
-		tileTextures.put(TileType.GRASS, new Texture(Gdx.files.internal("grass0-dirt-mix_1.png")));
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 320, 320);
 	}
@@ -37,7 +34,7 @@ public class INHCore extends ApplicationAdapter
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		map.draw(batch, tileTextures);
+		map.draw(batch);
 		batch.end();
 	}
 	
@@ -46,12 +43,7 @@ public class INHCore extends ApplicationAdapter
 	{
 		batch.dispose();
 		// Disposing of all of the map sprites. This code is a mess right now
-        // TODO: Clean this up
-		TileType[] mapKeys = tileTextures.keySet().toArray(new TileType[0]);
-		for (int i = 0; i < mapKeys.length; i++)
-        {
-            tileTextures.remove(mapKeys[i]).dispose(); // simultaneously removing textures from the hash map and
-														//	disposing of them
-        }
+		// TODO: Clean this up
+		map.dispose();
 	}
 }
