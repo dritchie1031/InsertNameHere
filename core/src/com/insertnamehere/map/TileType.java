@@ -6,5 +6,5 @@ package com.insertnamehere.map;
 
 public enum TileType
 {
-    GRASS
+    GRASS1, GRASS2, GRASSFLOWER;
 }
